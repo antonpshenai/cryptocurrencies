@@ -3,12 +3,33 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:CurrencyApp.Views"
+      xmlns:viewmodels="clr-namespace:CurrencyApp.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewmodels:MainPageViewModel}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450"
       Title="MainPage">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Center" Text="TOP 10" FontSize="38" FontFamily="Curlz MT" Foreground="White"></TextBlock>
+
+        <DataGrid ItemsSource="{Binding Assets}" AutoGenerateColumns="False" 
+                  AlternatingRowBackground="LightGray" RowBackground="#4c4d6c" 
+                  HorizontalGridLinesBrush="#4c4d6c" VerticalGridLinesBrush="#2d2c40"
+                  BorderBrush="#FF443A44" BorderThickness="1" Margin="15,60,15,15" Background="#FFDDDBE0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding Rank}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding PriceUsd}" />
+                <DataGridTextColumn Header="1h %" />
+                <DataGridTextColumn Header="7d %" />
+                <DataGridTextColumn Header="24h %" Binding="{Binding ChangePercent24Hr}" />
+                <DataGridTextColumn Header="Market Cap" Binding="{Binding MarketCapUsd}" />
+                <DataGridTextColumn Header="Volume (24h)" Binding="{Binding VolumeUsd24Hr}" />
+                <DataGridTextColumn Header="Circulating Supply" Binding="{Binding CirculatingSupply}" />
+                <DataGridTextColumn Header="Last 7 Days" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

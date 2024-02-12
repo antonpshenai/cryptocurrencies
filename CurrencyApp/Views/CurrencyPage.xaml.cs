@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace CurrencyApp.Views
 {
     /// <summary>
-    /// Interaction logic for MainPage.xaml
+    /// Interaction logic for CurrencyPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class CurrencyPage : Page
     {
-        public MainPage()
+        public CurrencyPage()
         {
             InitializeComponent();
-            DataContext = new MainPageViewModel();
+            DataContext = new CurrencyPageViewModel();
         }
     }
 }
