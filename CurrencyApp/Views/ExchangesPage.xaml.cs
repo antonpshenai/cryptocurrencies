@@ -33,9 +33,7 @@ namespace CurrencyApp.Views
         private void DataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var row = (ExchangesModel)DataGridView.SelectedItems[0];
-            var a = row?.ExchangeId;//It is returning the id of selected row
-
-            var b = a;
+            var a = row?.ExchangeId;
         }
     }
 

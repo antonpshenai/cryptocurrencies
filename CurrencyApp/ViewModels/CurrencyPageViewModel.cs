@@ -24,7 +24,7 @@ namespace CurrencyApp.ViewModels
         public CurrencyPageViewModel()
         {
             _coinCapAPIService = new CoinCapAPIService();
-            LoadAssetsAsync(); // Call the asynchronous method directly
+            LoadAssetsAsync();
         }
 
         private async void LoadAssetsAsync()

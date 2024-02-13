@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace CurrencyApp.Views
     /// </summary>
     public partial class CoinPage : Page
     {
-        public CoinPage()
+        public CoinPage(string coinId)
         {
             InitializeComponent();
+            DataContext = new CoinPageViewModel(coinId);
+
+
+
+
         }
     }
 }

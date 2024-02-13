@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,24 +7,23 @@ using System.Threading.Tasks;
 
 namespace CurrencyApp.Models
 {
-    class CoinModel
-    {      public string? Id { get; set; }
-           
-           public int RankCoinreRa { get; set; }
-           public string? SymbolCoin { get; set; }
-       
-           public decimal SupplyData { get; set; }
-           public decimal MaxSupplyData { get; set; }
+    public class CoinModel
+    {
+        public string Id { get; set; }
+        public string Rank { get; set; }
+        public string Symbol { get; set; }
+        public string Name { get; set; }
+        public string Supply { get; set; }
+        public string MarketCapUsd { get; set; }
+        public string VolumeUsd24Hr { get; set; }
+        public string PriceUsd { get; set; }
+        public string ChangePercent24Hr { get; set; }
+        public List<MarketModel> Markets { get; set; }
+        public List<CoinHistoryDataModel> HistoricalData { get; set; }
 
-           public decimal MarketCapUsdData { get; set; }
-
-           public decimal VolumeUsd24HrData { get; set; }
-
-           public decimal PriceUsdData { get; set; }
-
-           public decimal ChangePercentDayData { get; set; }
-
-           public decimal VwapDayHrData { get; set; }
+        //for chart
+        public SeriesCollection HistoricalDataChartSeries { get; set; }
+        public List<string> HistoricalDataLabels { get; set; }
 
 
         //"id": "bitcoin",

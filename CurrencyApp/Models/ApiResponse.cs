@@ -16,4 +16,19 @@ namespace CurrencyApp.Models
     {
         public List<ExchangesModel> Data { get; set; }
     }
+
+    public class ApiResponseCoin
+    {
+        public CoinModel Data { get; set; }
+    }
+
+    public class CoinMarketsResponse
+    {
+        public List<MarketModel> Data { get; set; }
+    }
+
+    public class CoinHistoryResponse
+    {
+        public List<CoinHistoryDataModel> Data { get; set; }
+    }
 }

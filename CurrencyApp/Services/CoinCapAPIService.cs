@@ -12,9 +12,9 @@ namespace CurrencyApp.Services
     public class CoinCapAPIService
     {
         private const string BaseUrl = "https://api.coincap.io/v2/";
-      
 
-        public  List<CurrencyModel> GetTopAssets(int limit = 10)
+
+        public List<CurrencyModel> GetTopAssets(int limit = 10)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -23,7 +23,7 @@ namespace CurrencyApp.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string data =  response.Content.ReadAsStringAsync().Result;
+                    string data = response.Content.ReadAsStringAsync().Result;
                     var result = JsonConvert.DeserializeObject<ApiResponse>(data);
                     return result?.Data;
                 }
@@ -34,40 +34,7 @@ namespace CurrencyApp.Services
             }
         }
 
-        public List<CurrencyModel> GetAssets()
-        {
-            const int pageSize = 100;
-            int offset = 0;
-            List<CurrencyModel> allAssets = new List<CurrencyModel>();
-
-            using (HttpClient client = new HttpClient())
-            {
-                do
-                {
-                    string apiUrl = $"{BaseUrl}assets?limit={pageSize}&offset={offset}";
-                    HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string data = response.Content.ReadAsStringAsync().Result;
-                        var result = JsonConvert.DeserializeObject<ApiResponse>(data);
-
-                        if (result?.Data == null || result.Data.Count == 0)
-                            break;
-
-                        allAssets.AddRange(result.Data);
-                        offset += pageSize;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                } while (true);
-            }
-
-            return allAssets;
-        }
-
+        //async for loading quickly all currency + 20 paral
         public async Task<List<CurrencyModel>> GetAssetsAsync()
         {
             const int pageSize = 100;
@@ -84,7 +51,7 @@ namespace CurrencyApp.Services
                     apiRequests.Add(GetApiResponseAsync(client, apiUrl));
 
                     offset += pageSize;
-                } while (apiRequests.Count < 20); // For example, limit to 20 parallel requests
+                } while (apiRequests.Count < 20);
 
                 while (apiRequests.Count > 0)
                 {
@@ -114,29 +81,10 @@ namespace CurrencyApp.Services
             }
             else
             {
-                return null; // or throw an exception, depending on your error handling strategy
+                return null;
             }
         }
 
-        public CurrencyModel GetCurrencyDetails(string currencyId)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                string apiUrl = $"{BaseUrl}assets/{currencyId}";
-                HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string data = response.Content.ReadAsStringAsync().Result;
-                    var result = JsonConvert.DeserializeObject<CurrencyModel>(data);
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
         public List<ExchangesModel> GetExchangesDetails()
         {
             using (HttpClient client = new HttpClient())
@@ -157,6 +105,72 @@ namespace CurrencyApp.Services
             }
         }
 
+        public CoinModel GetCoinDetails(string id)
+        {   
+            using (HttpClient client = new HttpClient())
+            {
+                string apiUrl = $"{BaseUrl}assets/{id}";
+                HttpResponseMessage response = client.GetAsync(apiUrl).Result;
 
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = response.Content.ReadAsStringAsync().Result;
+                    var result = JsonConvert.DeserializeObject<ApiResponseCoin>(data);
+                    return result.Data;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+
+        }
+
+        public List<MarketModel> GetCoinMarkets(string coinId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string url = $"{BaseUrl}assets/{coinId}/markets";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    CoinMarketsResponse marketsResponse = JsonConvert.DeserializeObject<CoinMarketsResponse>(json);
+
+                    if (marketsResponse != null && marketsResponse.Data != null)
+                    {
+                        return marketsResponse.Data;
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        public List<CoinHistoryDataModel> GetCoinHistoricalData(string coinId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string url = $"{BaseUrl}assets/{coinId}/history?interval=d1";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    var historyResponse = JsonConvert.DeserializeObject<CoinHistoryResponse>(json);
+
+                    if (historyResponse != null && historyResponse.Data != null)
+                    {
+                        return historyResponse.Data;
+                    }
+                }
+
+                return null;
+            }
+        }
     }
 }
