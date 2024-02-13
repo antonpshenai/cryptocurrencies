@@ -52,7 +52,7 @@
                         <ListViewItem Height="60" Foreground="White">
                             <StackPanel Margin="20 0" Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ArrowTopCircle" Width="30" Height="30"/>
-                                <TextBlock Text="Top 10" VerticalAlignment="Center" Margin="10 0" FontSize="18" />
+                                <TextBlock Text="Exchanges" VerticalAlignment="Center" Margin="10 0" FontSize="18" />
                             </StackPanel>
                         </ListViewItem>
                     </ListView>

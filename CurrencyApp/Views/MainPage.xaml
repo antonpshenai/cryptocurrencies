@@ -14,8 +14,10 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Text="TOP 10" FontSize="38" FontFamily="Curlz MT" Foreground="White"></TextBlock>
 
-        <DataGrid ItemsSource="{Binding Assets}" AutoGenerateColumns="False" 
-                  AlternatingRowBackground="LightGray" RowBackground="#4c4d6c" 
+        
+
+            <DataGrid ItemsSource="{Binding Assets}" AutoGenerateColumns="False" 
+                  AlternatingRowBackground="#d0d5d8" RowBackground="#d2e7f4" 
                   HorizontalGridLinesBrush="#4c4d6c" VerticalGridLinesBrush="#2d2c40"
                   BorderBrush="#FF443A44" BorderThickness="1" Margin="15,60,15,15" Background="#FFDDDBE0">
             <DataGrid.Columns>
@@ -31,5 +33,22 @@
                 <DataGridTextColumn Header="Last 7 Days" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <!--Pagination-->
+
+        <!--<Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
+                CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
+            --><!--<StackPanel Orientation="Horizontal" Margin="0,374,0,0">
+                --><!--<Button VerticalAlignment="Top" ToolTip="Close" x:Name="btnClose" Click="btnClose_Click" Foreground="White" Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Right" Margin="0,13,16,0" BorderBrush="White" Background="{x:Null}">
+                    --><!--<Button>--><!--
+                    <materialDesign:PackIcon Kind="ChevronLeft"/>
+                </Button>-->
+                <!--<Button VerticalAlignment="Top" ToolTip="Close" x:Name="btnClose" Click="btnClose_Click" Foreground="White" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Right" Margin="0,13,16,0" BorderBrush="White" Background="{x:Null}">
+                    <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+                </Button>--><!--
+                
+                <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
+            </StackPanel>--><!--
+        </Border>-->
     </Grid>
 </Page>

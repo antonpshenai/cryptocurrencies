@@ -31,33 +31,13 @@ namespace CurrencyApp.ViewModels
             LoadAssets();
         }
 
-        private  void LoadAssets()
+        private void LoadAssets()
         {
             List<CurrencyModel> assets = _coinCapAPIService.GetTopAssets();
             if (assets != null)
             {
                 Assets = new ObservableCollection<CurrencyModel>(assets);
             }
-
-            //try
-            //{
-            //    List<AssetsModel> assets = await _coinCapAPIService.GetTopAssets();
-
-            //    // Use Dispatcher to update UI on the UI thread
-            //    Application.Current.Dispatcher.Invoke(() =>
-            //    {
-            //        if (assets != null)
-            //        {
-            //            Assets = new ObservableCollection<AssetsModel>(assets);
-            //        }
-            //        // Handle errors if necessary
-            //    });
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Log or handle the exception
-            //    Console.WriteLine($"Error loading assets: {ex.Message}");
-            //}
         }
     }
 }

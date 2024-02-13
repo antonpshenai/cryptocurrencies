@@ -1,11 +1,7 @@
 ﻿using CurrencyApp.Services;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CurrencyApp.Models;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace CurrencyApp.ViewModels
@@ -21,19 +17,19 @@ namespace CurrencyApp.ViewModels
             set
             {
                 _assets = value;
-                OnPropertyChanged(nameof(CurrencyModel));
+                OnPropertyChanged(nameof(Assets));
             }
         }
 
         public CurrencyPageViewModel()
         {
             _coinCapAPIService = new CoinCapAPIService();
-            LoadAssets();
+            LoadAssetsAsync(); // Call the asynchronous method directly
         }
 
-        private void LoadAssets()
+        private async void LoadAssetsAsync()
         {
-            List<CurrencyModel> assets = _coinCapAPIService.GetAssets();
+            List<CurrencyModel> assets = await _coinCapAPIService.GetAssetsAsync();
             if (assets != null)
             {
                 Assets = new ObservableCollection<CurrencyModel>(assets);

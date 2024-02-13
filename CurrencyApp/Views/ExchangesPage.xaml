@@ -1,0 +1,34 @@
+﻿<Page x:Class="CurrencyApp.Views.ExchangePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CurrencyApp.Views"
+      xmlns:viewmodels="clr-namespace:CurrencyApp.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewmodels:ExchangesPageViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ExchangePage">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Text="TOP EXCHANGES" FontSize="38" FontFamily="Curlz MT" Foreground="White"></TextBlock>
+        
+        <DataGrid ItemsSource="{Binding Exchanges}" AutoGenerateColumns="False" 
+                  AlternatingRowBackground="#d0d5d8" RowBackground="#d2e7f4" 
+                  HorizontalGridLinesBrush="#4c4d6c" VerticalGridLinesBrush="#2d2c40"
+                  BorderBrush="#FF443A44" BorderThickness="1" Margin="15,60,15,15" Background="#FFDDDBE0"
+                  IsReadOnly="True" MouseDoubleClick="DataGridView_MouseDoubleClick" x:Name="DataGridView">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding Rank}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Exchange ID" Binding="{Binding ExchangeId}"/>
+                <DataGridTextColumn Header="Percent  Total Volume" Binding="{Binding PercentTotalVolume}"/>
+                <DataGridTextColumn Header="Traiding Pairs" Binding="{Binding TradingPairs}"/>
+                <DataGridTextColumn Header="Socket" Binding="{Binding Socket}"/>
+                <DataGridTextColumn Header="URL" Binding="{Binding ExchangeUrl}"/>
+             
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
+

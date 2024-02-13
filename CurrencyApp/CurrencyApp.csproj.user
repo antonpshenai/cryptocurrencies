@@ -10,7 +10,13 @@
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\CoinPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\CurrencyPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExchangesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MainPage.xaml.cs">
@@ -21,7 +27,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\CoinPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\CurrencyPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExchangesPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainPage.xaml">

@@ -19,8 +19,6 @@ namespace CurrencyApp
         {
             base.OnStartup(e);
             MainWindow mainWindow = new MainWindow();
-            //MainPage mainPage = new MainPage();
-            //mainWindow.MainFrame.Navigate(mainPage);
             mainWindow.Show();
         }
     }

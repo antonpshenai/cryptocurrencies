@@ -7,25 +7,15 @@ namespace CurrencyApp
 {
     public partial class MainWindow : Window
     {
-        //private readonly MainPageViewModel mainPageViewModel;
-        //private readonly CurrencyViewModel currencyViewModel;
-
         public MainWindow()
         {
             InitializeComponent();
-            //mainPageViewModel = new MainPageViewModel();
-            //DataContext = mainPageViewModel;
             NavigateToPage(new MainPage());
         }
 
         private void NavigateToPage(Page page)
         {
             MainFrame.NavigationService.Navigate(page);
-        }
-
-        private void AllCoinsButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigateToPage(new CurrencyPage());
         }
 
         private void DragGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -44,6 +34,9 @@ namespace CurrencyApp
                     break;
                 case 1:
                     NavigateToPage(new CurrencyPage());
+                    break;
+                case 2:
+                    NavigateToPage(new ExchangePage());
                     break;
             }
         }
