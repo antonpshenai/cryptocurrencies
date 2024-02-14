@@ -17,36 +17,30 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5">
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="#ec2075" Offset="0.0" />
-                    <GradientStop Color="#f33944" Offset="0.50" />
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Rectangle Grid.Row="2">
+        <Border BorderBrush="#FF443A44" Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5">
+            <Rectangle Grid.Row="2" >
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#ec2075" Offset="0.0" />
-                        <GradientStop Color="#f33944" Offset="0.50" />
+                        <GradientStop Color="#d0d5d8" Offset="0.0" />
+                        <GradientStop Color="LightGray" Offset="0.50" />
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
         </Border>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Height="50" Width="1000" VerticalAlignment="Center">
-            <Label Height="50" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Currency Converter" FontSize="25" Foreground="#ec2075" FontWeight="Bold"></Label>
+            <Label Height="50" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Currency Converter" FontSize="25" Foreground="Gray" FontWeight="Bold"></Label>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Height="80" Width="1000">
-            <Label Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Converted Currency" FontSize="20"></Label>
-            <Label Name="lblResult" Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Content="{Binding Result}" />
+            <Label Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="LightGray" Content="Converted Currency" FontSize="20"></Label>
+            <Label Name="lblResult" Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="LightGray" FontSize="20" Content="{Binding Result}" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="60" Width="800">
-            <Label Height="40" Width="150" Content="Enter Amount : " Margin="35 0 0 10" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
-            <Label Height="40" Width="150" Content="From : " Margin="110 0 0 10" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
-            <Label Height="40" Width="150" Content="To : " Margin="130 0 0 10" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
+            <Label Height="40" Width="150" Content="Enter Amount : " Margin="35 0 0 10" VerticalAlignment="Bottom" Foreground="#FF443A44" FontSize="20"></Label>
+            <Label Height="40" Width="150" Content="From : " Margin="110 0 0 10" VerticalAlignment="Bottom" Foreground="#FF443A44" FontSize="20"></Label>
+            <Label Height="40" Width="150" Content="To : " Margin="130 0 0 10" VerticalAlignment="Bottom" Foreground="#FF443A44" FontSize="20"></Label>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Width="800" VerticalAlignment="Bottom">
@@ -65,16 +59,16 @@
             <Button Name="Convert" Height="40" Width="150" Content="Convert" Click="Convert_Click" Margin="350 0 20 0" Foreground="White" FontSize="20">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#ec2075" Offset="0.0"/>
-                        <GradientStop Color="#f33944" Offset="0.5"/>
+                        <GradientStop Color="LightGray" Offset="0.0"/>
+                        <GradientStop Color="Gray" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
             <Button Name="Clear" Height="40" Width="150" Content="Clear" Click="Clear_Click" Foreground="White" FontSize="20">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#ec2075" Offset="0.0"/>
-                        <GradientStop Color="#f33944" Offset="0.5"/>
+                        <GradientStop Color="Gray" Offset="0.0"/>
+                        <GradientStop Color="LightGray" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
