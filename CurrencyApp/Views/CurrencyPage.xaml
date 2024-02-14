@@ -18,18 +18,15 @@
         <DataGrid ItemsSource="{Binding Assets}" AutoGenerateColumns="False" 
                   AlternatingRowBackground="#d0d5d8" RowBackground="#d2e7f4" 
                   HorizontalGridLinesBrush="#4c4d6c" VerticalGridLinesBrush="#2d2c40"
-                  BorderBrush="#FF443A44" BorderThickness="1" Margin="15,60,15,15" Background="#FFDDDBE0">
+                  BorderBrush="#FF443A44" BorderThickness="1" Margin="15,60,15,15" Background="#FFDDDBE0"
+                  IsReadOnly="True" MouseDoubleClick="DataGridView_MouseDoubleClick" x:Name="DataGridView">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="#" Binding="{Binding Rank}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Price" Binding="{Binding PriceUsd}" />
-                <DataGridTextColumn Header="1h %" />
-                <DataGridTextColumn Header="7d %" />
                 <DataGridTextColumn Header="24h %" Binding="{Binding ChangePercent24Hr}" />
                 <DataGridTextColumn Header="Market Cap" Binding="{Binding MarketCapUsd}" />
                 <DataGridTextColumn Header="Volume (24h)" Binding="{Binding VolumeUsd24Hr}" />
-                <DataGridTextColumn Header="Circulating Supply" Binding="{Binding CirculatingSupply}" />
-                <DataGridTextColumn Header="Last 7 Days" />
+                <DataGridTextColumn Header="Circulating Supply" Binding="{Binding Supply}" />
             </DataGrid.Columns>
             
         </DataGrid>

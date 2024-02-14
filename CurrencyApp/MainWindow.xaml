@@ -23,12 +23,6 @@
                         <materialDesign:PackIcon Kind="Wallet" Width="55" Height="55" Foreground="White"/>
                         <TextBlock Text=" Easy Coin" FontSize="38" FontFamily="Curlz MT" Foreground="White"></TextBlock>
                     </StackPanel>
-                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="45" Width="500"  Background="White">
-                        <TextBlock Margin="10 0" FontSize="25" FontFamily="Curlz MT" IsHitTestVisible="False"
-                               Panel.ZIndex="1" Text="What are you looking for..?" Foreground="Gray"></TextBlock>
-                        <TextBox x:Name="txtSearch"/>
-                        <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" Foreground="Gray" Margin="0,0,15,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    </Grid>
                 </Grid>
 
                 <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="565" Background="#2d2c40" Width="250" Margin="0,65,0,0">
@@ -45,14 +39,26 @@
                         </ListViewItem>
                         <ListViewItem Height="60" Foreground="White">
                             <StackPanel Margin="20 0" Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ArrowTopCircle" Width="30" Height="30"/>
+                                <materialDesign:PackIcon Kind="CashMultiple" Width="30" Height="30"/>
                                 <TextBlock Text="All coins" VerticalAlignment="Center" Margin="10 0" FontSize="18" />
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem Height="60" Foreground="White">
                             <StackPanel Margin="20 0" Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ArrowTopCircle" Width="30" Height="30"/>
+                                <materialDesign:PackIcon Kind="BriefcaseArrowUpDownOutline" Width="30" Height="30"/>
                                 <TextBlock Text="Exchanges" VerticalAlignment="Center" Margin="10 0" FontSize="18" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60" Foreground="White">
+                            <StackPanel Margin="20 0" Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Magnify" Width="30" Height="30"/>
+                                <TextBlock Text="Search" VerticalAlignment="Center" Margin="10 0" FontSize="18" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60" Foreground="White">
+                            <StackPanel Margin="20 0" Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CashCycle" Width="30" Height="30"/>
+                                <TextBlock Text="Converter" VerticalAlignment="Center" Margin="10 0" FontSize="18" />
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
@@ -63,6 +69,7 @@
                 <Button VerticalAlignment="Top" ToolTip="Close" x:Name="btnClose" Click="btnClose_Click" Foreground="White" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Right" Margin="0,13,16,0" BorderBrush="White" Background="{x:Null}">
                     <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
                 </Button>
+                
                 <Grid VerticalAlignment="Bottom" Width="825" Height="565" HorizontalAlignment="Right">
                     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
                 </Grid>

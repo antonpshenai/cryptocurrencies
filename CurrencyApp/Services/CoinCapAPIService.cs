@@ -1,10 +1,7 @@
 ﻿using CurrencyApp.Models;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CurrencyApp.Services
@@ -105,7 +102,7 @@ namespace CurrencyApp.Services
             }
         }
 
-        public CoinModel GetCoinDetails(string id)
+        public CurrencyModel GetCoinDetails(string id)
         {   
             using (HttpClient client = new HttpClient())
             {
@@ -123,8 +120,6 @@ namespace CurrencyApp.Services
                     return null;
                 }
             }
-
-
         }
 
         public List<MarketModel> GetCoinMarkets(string coinId)
@@ -172,5 +167,99 @@ namespace CurrencyApp.Services
                 return null;
             }
         }
+
+        public async Task<List<RateModel>> GetRatesAsync()
+        {
+            const int pageSize = 100;
+            int offset = 0;
+            List<RateModel> allAssets = new List<RateModel>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                List<Task<RateResponse>> apiRequests = new List<Task<RateResponse>>();
+
+                do
+                {
+                    string apiUrl = $"{BaseUrl}rates?limit={pageSize}&offset={offset}";
+                    apiRequests.Add(GetApiRateResponseAsync(client, apiUrl));
+
+                    offset += pageSize;
+                } while (apiRequests.Count < 20);
+
+                while (apiRequests.Count > 0)
+                {
+                    Task<RateResponse> completedTask = await Task.WhenAny(apiRequests);
+                    apiRequests.Remove(completedTask);
+
+                    var result = await completedTask;
+
+                    if (result?.Data == null || result.Data.Count == 0)
+                        break;
+
+                    allAssets.AddRange(result.Data);
+                }
+            }
+
+            return allAssets;
+        }
+
+        private async Task<RateResponse> GetApiRateResponseAsync(HttpClient client, string apiUrl)
+        {
+            HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string data = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<RateResponse>(data);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ExchangesModel GetExchangeDetails(string id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string apiUrl = $"{BaseUrl}exchanges/{id}";
+                HttpResponseMessage response = client.GetAsync(apiUrl).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = response.Content.ReadAsStringAsync().Result;
+                    var result = JsonConvert.DeserializeObject<ApiResponseExchange>(data);
+                    return result.Data;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<MarketModel> GetMarketCoins(string exchangeId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string url = $"{BaseUrl}markets?exchangeId={exchangeId}";
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    CoinMarketsResponse marketsResponse = JsonConvert.DeserializeObject<CoinMarketsResponse>(json);
+
+                    if (marketsResponse != null && marketsResponse.Data != null)
+                    {
+                        return marketsResponse.Data;
+                    }
+                }
+
+                return null;
+            }
+        }
+
     }
 }

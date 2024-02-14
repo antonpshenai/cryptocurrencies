@@ -1,5 +1,4 @@
-﻿using CurrencyApp.ViewModels;
-using CurrencyApp.Views;
+﻿using CurrencyApp.Views;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -36,7 +35,13 @@ namespace CurrencyApp
                     NavigateToPage(new CurrencyPage());
                     break;
                 case 2:
-                    NavigateToPage(new ExchangePage());
+                    NavigateToPage(new ExchangesPage());
+                    break;
+                case 3:
+                    NavigateToPage(new SearchPage());
+                    break;
+                case 4:
+                    NavigateToPage(new ConverterPage());
                     break;
             }
         }

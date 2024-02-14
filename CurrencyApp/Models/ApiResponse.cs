@@ -1,9 +1,4 @@
-﻿using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CurrencyApp.Models
 {
@@ -19,7 +14,7 @@ namespace CurrencyApp.Models
 
     public class ApiResponseCoin
     {
-        public CoinModel Data { get; set; }
+        public CurrencyModel Data { get; set; }
     }
 
     public class CoinMarketsResponse
@@ -30,5 +25,14 @@ namespace CurrencyApp.Models
     public class CoinHistoryResponse
     {
         public List<CoinHistoryDataModel> Data { get; set; }
+    }
+
+    public class RateResponse
+    {
+        public List<RateModel> Data { get; set; }
+    }
+    public class ApiResponseExchange
+    {
+        public ExchangesModel Data { get; set; }
     }
 }

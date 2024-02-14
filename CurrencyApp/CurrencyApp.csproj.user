@@ -16,10 +16,16 @@
     <Compile Update="Views\CurrencyPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ExchangePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ExchangesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SearchPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -33,10 +39,16 @@
     <Page Update="Views\CurrencyPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ExchangePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\ExchangesPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

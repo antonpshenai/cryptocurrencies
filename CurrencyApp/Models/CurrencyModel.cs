@@ -1,8 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CurrencyApp.Models
 {
@@ -17,5 +14,11 @@ namespace CurrencyApp.Models
         public string VolumeUsd24Hr { get; set; }
         public string PriceUsd { get; set; }
         public string ChangePercent24Hr { get; set; }
+        public List<MarketModel> Markets { get; set; }
+        public List<CoinHistoryDataModel> HistoricalData { get; set; }
+
+        //for chart
+        public SeriesCollection HistoricalDataChartSeries { get; set; }
+        public List<string> HistoricalDataLabels { get; set; }
     }
 }

@@ -1,12 +1,7 @@
-﻿using CurrencyApp.Services;
-using System;
+﻿using CurrencyApp.Models;
+using CurrencyApp.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using CurrencyApp.Models;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace CurrencyApp.ViewModels
 {

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using CurrencyApp.Models;
+﻿using CurrencyApp.Models;
 using CurrencyApp.Services;
 using LiveCharts;
-using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CurrencyApp.ViewModels
 {
@@ -18,9 +12,9 @@ namespace CurrencyApp.ViewModels
     {
         private readonly CoinCapAPIService _coinCapAPIService;
         private readonly string _coinId;
-        private CoinModel _coin;
+        private CurrencyModel _coin;
 
-        public CoinModel Coin
+        public CurrencyModel Coin
         {
             get { return _coin; }
             set
@@ -32,7 +26,7 @@ namespace CurrencyApp.ViewModels
 
         public CoinPageViewModel(string coinId) 
         {
-            _coinId = coinId;
+            _coinId = coinId.ToLower();
             _coinCapAPIService = new CoinCapAPIService();
             GetApiCoin();
         }

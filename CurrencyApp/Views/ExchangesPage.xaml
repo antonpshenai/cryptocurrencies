@@ -1,4 +1,4 @@
-﻿<Page x:Class="CurrencyApp.Views.ExchangePage"
+﻿<Page x:Class="CurrencyApp.Views.ExchangesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,10 +8,10 @@
       d:DataContext="{d:DesignInstance Type=viewmodels:ExchangesPageViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ExchangePage">
+      Title="ExchangesPage">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Text="TOP EXCHANGES" FontSize="38" FontFamily="Curlz MT" Foreground="White"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Text="EXCHANGES" FontSize="38" FontFamily="Curlz MT" Foreground="White"></TextBlock>
         
         <DataGrid ItemsSource="{Binding Exchanges}" AutoGenerateColumns="False" 
                   AlternatingRowBackground="#d0d5d8" RowBackground="#d2e7f4" 
